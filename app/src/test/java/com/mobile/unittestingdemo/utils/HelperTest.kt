@@ -1,16 +1,32 @@
 package com.mobile.unittestingdemo.utils
 
+import org.junit.After
 import org.junit.Assert.*
+import org.junit.Before
 
 import org.junit.Test
 
 class HelperTest {
 
+
+    lateinit var helper: Helper
+
+    @Before
+    fun before(){
+         helper = Helper()
+        println("before every test case")
+    }
+
+    @After
+    fun tearDown(){
+        println("after every test case")
+    }
+
     @Test
     fun isPalindrome_inputString_level_TRUE() {
 
-        //arrange
-        var helper = Helper()
+
+
 
         //act
         val palindrome = helper.isPalindrome("level")
@@ -24,13 +40,11 @@ class HelperTest {
     @Test
     fun isPalindrome_inputString_hello_FALSE() {
 
-        //arrange
-        var helper = Helper()
 
         //act
         val palindrome = helper.isPalindrome("hello")
 
         //assert
-        assertEquals(true,palindrome)
+        assertEquals(false,palindrome)
     }
 }
